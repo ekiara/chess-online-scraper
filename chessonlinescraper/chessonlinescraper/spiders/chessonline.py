@@ -1,6 +1,4 @@
-"""
-Scraper to collect player ranking data from chess.com
-"""
+"""Scraper to collect player ranking data from chess.com"""
 import scrapy
 
 
@@ -20,7 +18,7 @@ class ChessonlineSpider(scrapy.Spider):
             else:
                 ranking_div = row.css("td")[0].xpath(".//div").get()
                 ranking = ranking_div[ranking_div.index("#"):].split("\n")[0]
-                # TODO: the type conversion below should be handled in a safer way
+                # TODO: handle type conversion below in a safer way (IndexError)
                 ranking_change = int(
                     row.xpath(".//td[1]/div/div/text()")[1].get().strip()
                 )
@@ -48,6 +46,7 @@ class ChessonlineSpider(scrapy.Spider):
                     .split()[-1]
                 )
 
+            # TODO: remove all .css() selectors and use xpaths instead
             yield {
                 "ranking": ranking,
                 "ranking_change": ranking_change,
