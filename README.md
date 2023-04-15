@@ -1,6 +1,8 @@
-# Scrapy Web Scraper
+# Chess Online Website Scraper
 This is a simple web scraper built using the Scrapy framework. It is designed to scrape data from the Chess Online website.
 Scraped data will be used in an interactive web app.
+
+![Cover Image](assets/images/chess-online-scraper-cover-image.png)
 
 ## Requirements
 Python 3.11.1
